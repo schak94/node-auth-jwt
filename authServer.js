@@ -2,47 +2,10 @@ require('dotenv').config();
 const express = require('express');
 const bcrypt = require('bcrypt');// It is an async function
 const jwt = require('jsonwebtoken');
-//const mongoose = require('mongoose');
 const app = express();
-const users=[];
-// mongoose.connect('mongodb://localhost:27017/users',{useNewUrlParser:true})
-// const db = mongoose.connection
-// db.on('error', (error)=> console.log(error))
-// db.once('open', ()=>console.log('Connected to Database'))
-
+const users = require('./data')
 app.use(express.json())
 
-const posts = [
-    {
-        username: "Shubham",
-        post: "Post1"
-    },
-    {
-        username: "Shubham1",
-        post: "Post2"
-    }
-]
-
-app.get('/posts',authenticateToken, (req, res)=>{
-    res.json(posts.filter(post=> post.username === req.user.name))
-})
-
-app.get('/users', (req,res)=>{
-    res.json(users)
-})
- 
-app.post('/users', async (req,res)=>{
-    try{
-        const salt = await bcrypt.genSalt(); // Generates the salt for the password
-        const hashPassword = await bcrypt.hash(req.body.password, salt); // Add the salt and create the combination
-        const user = {name: req.body.name, password: hashPassword}
-        users.push(user)
-        res.status(201).send("Created")
-    }
-    catch(err){
-        res.status(500).send("Something went wrong!")
-    }
-})
 
 app.post('/users/login', async (req, res)=>{
     const user = users.find(user => user.name === req.body.name)
@@ -76,11 +39,11 @@ function authenticateToken(req, res, next){
 }
 
 
-app.listen(3000, (err)=>{
+app.listen(4000, (err)=>{
     if(err){
         console.log("Something went wrong");
     }
     else{
-        console.log("Server is listening to 3000")
+        console.log("Server is listening to 4000")
     }
 })

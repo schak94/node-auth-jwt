@@ -19,3 +19,13 @@ Content-Type: application/json
     "name":"Shubham",
     "password":"password"
 }
+
+# {
+#     "name":"Shubham",
+#     "password":"password"
+# }
+
+###
+
+GET http://localhost:3000/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2h1YmhhbSIsInBhc3N3b3JkIjoiJDJiJDEwJFFvS3MyTHdxZjUwV3k0VnNKdjQudE80UHp1SU9DdjNIZi9JNjE1dFAzMjBaeTZlUWcvV1pxIiwiaWF0IjoxNjU3NTUyNTEzfQ.L8RzW_ScAiGlqryBy_jvAnQSye4c8NIXosHefhYwtPc
