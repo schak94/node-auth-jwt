@@ -105,11 +105,11 @@ function authenticateToken(req, res, next){
 }
 
 
-app.listen(3000, (err)=>{
+app.listen(4000, (err)=>{
     if(err){
         console.log("Something went wrong");
     }
     else{
-        console.log("Server is listening to 3000")
+        console.log("Server is listening to 4000")
     }
 })
